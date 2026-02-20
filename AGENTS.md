@@ -12,8 +12,7 @@ Claude Code skill for generating PlantUML diagrams from text/code and converting
 
 ```
 plantuml/
-├── SKILL.md              # Primary skill definition (loaded by Claude Code)
-├── SKILL-PDA.md          # PDA-optimized variant with progressive disclosure
+├── SKILL.md              # Primary skill definition (PDA architecture, loaded by Claude Code)
 ├── scripts/              # Python conversion/processing tools
 ├── references/           # Syntax guides for all 19 diagram types
 │   └── troubleshooting/  # 12 error-category guides + decision tree
@@ -27,7 +26,7 @@ plantuml/
 
 | Task | Location |
 |------|----------|
-| Skill entry point | `SKILL.md` (standard) or `SKILL-PDA.md` (PDA/token-optimized) |
+| Skill entry point | `SKILL.md` (PDA/token-optimized) |
 | Diagram syntax for type X | `references/[type]_diagrams.md` |
 | All diagram types index | `references/toc.md` |
 | Universal syntax elements | `references/common_format.md` |
@@ -80,5 +79,5 @@ java -jar ~/plantuml.jar --check-syntax diagram.puml
 
 - `plantuml.jar` must be at `~/plantuml.jar`, `/usr/local/bin/plantuml.jar`, or `$PLANTUML_JAR`
 - Graphviz (`dot`) required for most UML types; NOT required for JSON/YAML/Gantt/MindMap
-- `SKILL-PDA.md` uses progressive disclosure architecture (tier1_token_budget: 100) — loads sub-guides on demand
+- `SKILL.md` uses progressive disclosure architecture (tier1_token_budget: 100) — loads sub-guides on demand
 - `process_markdown_puml.py` handles both embedded ` ```puml ` blocks AND linked `![](file.puml)` references in one pass
