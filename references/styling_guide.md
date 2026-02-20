@@ -1434,6 +1434,81 @@ skinparam legend {
 
 ---
 
+## Themes
+
+PlantUML supports built-in themes via `!theme <name>`. Use a theme near the top of your diagram, before content definitions.
+
+### Theme Syntax
+
+```puml
+@startuml
+!theme cerulean
+
+' Your diagram content here
+Alice -> Bob: Hello
+Bob --> Alice: Hi
+@enduml
+```
+
+### Enterprise / Professional
+
+- `cerulean` — Clean blue corporate style
+- `cerulean-outline` — Cerulean with outline elements
+- `spacelab` — Modern gray-blue professional
+- `materia` — Material Design inspired
+- `aws-orange` — AWS documentation style
+- `cloudscape-design` — AWS Cloudscape design system
+- `mars` — Red-toned professional
+
+### Dark Mode
+
+- `cyborg` — Dark cyberpunk style
+- `superhero` — Dark heroic style
+- `black-knight` — Very dark, minimal
+- `crt-amber` — Retro amber terminal
+- `hacker` — Green-on-black hacker aesthetic
+
+### Technical / Minimal
+
+- `mono` — Monochrome, clean
+- `plain` — No styling, pure structure
+- `lightgray` — Light gray minimal
+- `carbon-gray` — Dark gray technical
+- `reddress-darkblue` — Dark blue technical
+- `reddress-darkgreen` — Dark green technical
+- `reddress-darkorange` — Dark orange technical
+- `reddress-darkred` — Dark red technical
+- `reddress-lightblue` — Light blue technical
+- `reddress-lightgreen` — Light green technical
+- `reddress-lightorange` — Light orange technical
+- `reddress-lightred` — Light red technical
+
+### Creative / Stylized
+
+- `sketchy` — Hand-drawn sketch style
+- `sketchy-outline` — Sketch with outlines
+- `blueprint` — Blueprint/technical drawing
+- `mimeograph` — Vintage mimeograph style
+- `toy` — Playful colorful style
+- `amiga` — Retro Amiga computer style
+- `vibrant` — High-contrast vibrant colors
+- `sandstone` — Warm sandy tones
+
+### Theme Recommendations
+
+| Use Case | Recommended Theme |
+|----------|------------------|
+| Enterprise docs | `cerulean`, `spacelab`, `materia` |
+| Dark mode | `cyborg`, `superhero`, `black-knight` |
+| Technical docs | `mono`, `plain`, `lightgray` |
+| Creative/informal | `sketchy`, `blueprint`, `toy` |
+| AWS architecture | `aws-orange`, `cloudscape-design` |
+
+### Theme Galleries
+
+- Official gallery: https://plantuml.com/theme-gallery
+- Community gallery: https://the-lum.github.io/puml-themes-gallery/themes/
+
 ## Summary
 
 ### Modern Styling Best Practices
