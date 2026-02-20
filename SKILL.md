@@ -166,8 +166,8 @@ The `examples/` directory contains language-specific templates for converting co
 | Spring Boot | `examples/spring-boot/` | Deployment, Component, Sequence |
 | FastAPI | `examples/fastapi/` | Deployment, Component (async routers) |
 | Python ETL | `examples/python-etl/` | Architecture with Airflow |
-| Node.js | `examples/nodejs-web/` | Express/Nest.js components |
-| React | `examples/react-frontend/` | SPA deployment, component architecture |
+| Node.js | *(planned)* | Express/Nest.js components |
+| React | *(planned)* | SPA deployment, component architecture |
 
 **Workflow:**
 1. Identify application type
@@ -252,7 +252,7 @@ classDiagram {
 @enduml
 ```
 
-**Themes:** `!theme cerulean` (also: `bluegray`, `plain`, `sketchy`, `amiga`)
+**Themes:** `!theme cerulean` — see `references/styling_guide.md` for all 32 built-in themes
 
 **Unicode symbols:** Add semantic meaning with symbols from `references/unicode_symbols.md`:
 

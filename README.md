@@ -112,8 +112,8 @@ Convert real-world application architectures to PlantUML diagrams with comprehen
 | **Spring Boot** | AWS ECS deployment, component architecture, REST API sequence flows | `examples/spring-boot/` |
 | **FastAPI** | Kubernetes deployment, async architecture, Pydantic validation flows | `examples/fastapi/` |
 | **Python ETL** | Complete pipeline with Airflow, data quality, monitoring | `examples/python-etl/` |
-| **Node.js** | Express/Nest.js component diagrams | `examples/nodejs-web/` |
-| **React** | SPA deployment (S3 + CloudFront), component architecture | `examples/react-frontend/` |
+| **Node.js** | Express/Nest.js component diagrams | *(planned)* |
+| **React** | SPA deployment (S3 + CloudFront), component architecture | *(planned)* |
 
 Each example includes deployment, component, and sequence diagrams with production-ready patterns.
 
@@ -415,7 +415,7 @@ Quick styling with built-in themes:
 @enduml
 ```
 
-Available themes: `cerulean`, `bluegray`, `plain`, `sketchy`, `amiga`
+Available themes: `cerulean`, `bluegray`, `plain`, `sketchy`, `amiga` — see `references/styling_guide.md` for all 32 built-in themes
 
 ## Documentation
 
@@ -442,8 +442,8 @@ The `references/` directory contains comprehensive guides:
 | `examples/spring-boot/` | Spring Boot deployment, component, and sequence diagrams |
 | `examples/fastapi/` | FastAPI Kubernetes deployment and async architecture |
 | `examples/python-etl/` | Python ETL pipeline architecture with Airflow |
-| `examples/nodejs-web/` | Node.js/Express component diagrams |
-| `examples/react-frontend/` | React SPA deployment diagrams |
+| *(planned)* | Node.js/Express component diagrams |
+| *(planned)* | React SPA deployment diagrams |
 
 ## Troubleshooting
 
