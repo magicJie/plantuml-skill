@@ -249,7 +249,7 @@ User ||--o{ Order
 Process the file:
 
 ```bash
-python scripts/extract_and_convert_puml.py article.md --format png
+python scripts/process_markdown_puml.py article.md --format png
 ```
 
 This creates:
