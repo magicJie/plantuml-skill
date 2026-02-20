@@ -317,7 +317,8 @@ database "💾 PostgreSQL" as db
 5. **Add symbols**: Use `references/unicode_symbols.md`
 6. **Convert files**: `scripts/convert_puml.py`
 7. **Process markdown**: `scripts/process_markdown_puml.py`
-8. **Troubleshoot**: `references/troubleshooting/toc.md`
+8. **Resilient workflow (PRIMARY)**: `scripts/resilient_processor.py` — 4-step with error recovery
+9. **Troubleshoot**: `references/troubleshooting/toc.md`
 
 **Supported diagrams:**
 - UML: sequence, class, activity, state, component, deployment, use case, object, timing
