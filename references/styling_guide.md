@@ -4,15 +4,56 @@ Comprehensive guide to modern PlantUML styling using the `<style>` tag with CSS-
 
 ## Table of Contents
 
-1. [Why Modern `<style>` Over Legacy `skinparam`](#why-modern-style-over-legacy-skinparam)
-2. [Basic `<style>` Syntax](#basic-style-syntax)
-3. [Element Selectors](#element-selectors)
-4. [Stereotype Selectors](#stereotype-selectors)
-5. [Common Style Properties](#common-style-properties)
-6. [Styling by Diagram Type](#styling-by-diagram-type)
-7. [Advanced Styling Techniques](#advanced-styling-techniques)
-8. [Creole Text Formatting](#creole-text-formatting)
-9. [Complete Styling Examples](#complete-styling-examples)
+1. [Official-Like Baseline (Recommended Default)](#official-like-baseline-recommended-default)
+2. [Why Modern `<style>` Over Legacy `skinparam`](#why-modern-style-over-legacy-skinparam)
+3. [Basic `<style>` Syntax](#basic-style-syntax)
+4. [Element Selectors](#element-selectors)
+5. [Stereotype Selectors](#stereotype-selectors)
+6. [Common Style Properties](#common-style-properties)
+7. [Styling by Diagram Type](#styling-by-diagram-type)
+8. [Advanced Styling Techniques](#advanced-styling-techniques)
+9. [Creole Text Formatting](#creole-text-formatting)
+10. [Complete Styling Examples](#complete-styling-examples)
+
+---
+
+## Official-Like Baseline (Recommended Default)
+
+If your goal is to match PlantUML official site aesthetics, do **not** start with heavy custom colors.
+
+### Baseline Strategy
+
+1. Keep the diagram unstyled first (official defaults)
+2. Optionally add `!theme plain` for explicit neutral baseline
+3. Add minimal `<style>` only when readability needs improvement
+
+### Sequence Diagram Baseline Example
+
+```puml
+@startuml
+!theme plain
+
+actor User
+participant "Web App" as Web
+participant "API Service" as API
+database "Database" as DB
+
+User -> Web : Login request
+Web -> API : Authenticate
+API -> DB : Query user
+DB --> API : User data
+API --> Web : Auth token
+Web --> User : Success
+@enduml
+```
+
+### What Usually Makes Diagrams Look Worse Than Official
+
+- Full participant recoloring in sequence diagrams
+- Thick arrows and high-saturation palettes everywhere
+- Mixing many visual idioms in one diagram (emoji, heavy styling, multiple themes)
+
+Use custom styling as a second step, not as default output.
 
 ---
 
@@ -1513,15 +1554,17 @@ Bob --> Alice: Hi
 
 ### Modern Styling Best Practices
 
-1. ✅ **Always use `<style>` tags** instead of `skinparam`
-2. ✅ **Group styles by diagram type** for organization
-3. ✅ **Use stereotypes** for reusable style classes
-4. ✅ **Prefer named colors** for readability (or hex for precision)
-5. ✅ **Apply consistent theming** across related diagrams
-6. ✅ **Use Creole formatting** for rich text in notes and labels
-7. ✅ **Keep styles separate** from diagram content
-8. ✅ **ALWAYS pair BackgroundColor with FontColor** for readable contrast
-9. ✅ **Use dark text on light backgrounds** (Material Design 800-900 shades on 50-100 shades)
+1. ✅ **Default to official look first** (unstyled or `!theme plain`)
+2. ✅ **Use `<style>` only when needed** for focused readability
+3. ✅ **Avoid `skinparam` in new diagrams** (legacy/deprecated path)
+4. ✅ **Group styles by diagram type** for organization
+5. ✅ **Use stereotypes** for reusable style classes
+6. ✅ **Prefer named colors** for readability (or hex for precision)
+7. ✅ **Apply consistent theming** across related diagrams
+8. ✅ **Use Creole formatting** for rich text in notes and labels
+9. ✅ **Keep styles separate** from diagram content
+10. ✅ **ALWAYS pair BackgroundColor with FontColor** for readable contrast
+11. ✅ **Use dark text on light backgrounds** (Material Design 800-900 shades on 50-100 shades)
 
 ### Quick Reference
 

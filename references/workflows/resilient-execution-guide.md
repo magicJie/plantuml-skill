@@ -288,7 +288,9 @@ Update markdown file
 1. **Always use structured naming** - Enables traceability and organization
 2. **Keep .puml sources** - Version control friendly, enables future edits
 3. **Check setup first** - Run check_setup.py before batch processing
-4. **Default to PNG** - Use SVG only when user requests
-5. **Log errors** - Track recurring issues for improvement
-6. **Backup markdown** - Script creates *_with_images.md, preserves original
-7. **Retry before searching** - Internal guides cover 90%+ of common errors
+4. **Default visual style to official-first** - Use no style or `!theme plain` unless user asks for branding
+5. **For sequence diagrams, prefer clarity over decoration** - Avoid heavy recoloring and thick arrows by default
+6. **Default to PNG** - Use SVG only when user requests
+7. **Log errors** - Track recurring issues for improvement
+8. **Backup markdown** - Script creates *_with_images.md, preserves original
+9. **Retry before searching** - Internal guides cover 90%+ of common errors

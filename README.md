@@ -409,13 +409,15 @@ Quick styling with built-in themes:
 
 ```puml
 @startuml
-!theme cerulean
+!theme plain
 
 ' Your diagram content
 @enduml
 ```
 
-Available themes: `cerulean`, `bluegray`, `plain`, `sketchy`, `amiga` — see `references/styling_guide.md` for all 32 built-in themes
+Recommended default: keep official look (`no theme`) or use `!theme plain` as explicit neutral baseline.
+
+Available themes: `plain`, `cerulean`, `bluegray`, `spacelab`, `materia`, `sketchy`, `amiga` — see `references/styling_guide.md` for the full list
 
 ## Documentation
 
@@ -479,7 +481,8 @@ The `references/` directory contains comprehensive guides:
 4. **Use PNG for web** - Smaller file sizes, fixed resolution
 5. **Start simple** - Test basic diagrams before adding complexity
 6. **Version control** - Commit `.puml` source files to Git
-7. **Prefer modern styling** - Use `<style>` tags instead of legacy `skinparam`
+7. **Prefer official-first defaults** - Start with no style (or `!theme plain`), then add minimal `<style>` only when readability needs it
+8. **Avoid over-styling sequence diagrams** - Heavy participant recoloring and thick arrows often reduce clarity
 
 ## Use with Claude Code
 

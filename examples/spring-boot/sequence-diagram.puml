@@ -1,21 +1,5 @@
 @startuml spring-boot-api-flow
-!theme cerulean
-
-<style>
-participant {
-  BackgroundColor LightBlue
-  BorderColor Navy
-  FontColor DarkBlue
-}
-actor {
-  BackgroundColor LightGreen
-  BorderColor DarkGreen
-}
-database {
-  BackgroundColor LightYellow
-  BorderColor DarkGoldenrod
-}
-</style>
+!theme plain
 
 title 🌱 Spring Boot REST API - Create Order Flow
 

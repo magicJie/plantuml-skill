@@ -270,6 +270,12 @@ Checks: Java, Graphviz, plantuml.jar
 **Route**: `references/styling_guide.md`
 **Supporting**: `references/styling_guide.md`
 
+**Default Visual Policy (official-first):**
+1. Start with PlantUML official look (no `<style>` overrides)
+2. If explicit baseline needed, use `!theme plain` near top
+3. Add `<style>` only for focused readability improvements, not full recoloring
+4. For sequence diagrams, keep lifelines/arrows close to defaults and avoid heavy participant colors
+
 ### 7. Resilient Workflow (PRIMARY)
 **Trigger**: ALL diagram creation requests (recommended default)
 **Route**: `references/workflows/resilient-execution-guide.md`
@@ -304,6 +310,23 @@ Checks: Java, Graphviz, plantuml.jar
 - Setup check: `python scripts/check_setup.py`
 
 **For detailed syntax** → Load `references/[type]_diagrams.md`
+
+**Official-like baseline (recommended):**
+```puml
+@startuml
+!theme plain
+
+' Keep default rendering unless user explicitly requests custom branding
+actor User
+participant App
+participant API
+
+User -> App : Login
+App -> API : Authenticate
+API --> App : Token
+App --> User : Success
+@enduml
+```
 
 ## Error Handling
 
