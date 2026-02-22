@@ -270,11 +270,11 @@ Checks: Java, Graphviz, plantuml.jar
 **Route**: `references/styling_guide.md`
 **Supporting**: `references/styling_guide.md`
 
-**Default Visual Policy (official-first):**
-1. Start with PlantUML official look (no `<style>` overrides)
-2. If explicit baseline needed, use `!theme plain` near top
-3. Add `<style>` only for focused readability improvements, not full recoloring
-4. For sequence diagrams, keep lifelines/arrows close to defaults and avoid heavy participant colors
+**Default Visual Policy (sequence-first readability):**
+1. Use `!theme plain` as neutral baseline
+2. For sequence diagrams, group participants by architecture layer using `box "..." #Color`
+3. Use soft background colors for layer boxes; keep participant/arrow styling mostly default
+4. Add `<style>` only for focused readability improvements, not full recoloring
 
 ### 7. Resilient Workflow (PRIMARY)
 **Trigger**: ALL diagram creation requests (recommended default)
@@ -311,15 +311,19 @@ Checks: Java, Graphviz, plantuml.jar
 
 **For detailed syntax** → Load `references/[type]_diagrams.md`
 
-**Official-like baseline (recommended):**
+**Sequence baseline with grouped layers (recommended):**
 ```puml
 @startuml
 !theme plain
 
-' Keep default rendering unless user explicitly requests custom branding
-actor User
-participant App
-participant API
+box "Client" #LightCyan
+  actor User
+end box
+
+box "Application" #LightYellow
+  participant App
+  participant API
+end box
 
 User -> App : Login
 App -> API : Authenticate

@@ -19,6 +19,49 @@ WS --> User : Send Response
 @enduml
 ```
 
+## Recommended Default: Layered Grouping with Box Colors
+
+For production sequence diagrams, prefer grouping participants by architecture layer. This improves readability for long flows while keeping message semantics unchanged.
+
+```puml
+@startuml
+!theme plain
+
+box "设备侧" #LightCyan
+    participant "直连设备" as Device
+end box
+
+box "消息中间件" #LightGray
+    participant "MQTT Broker" as MQTT
+    participant "Kafka" as Kafka
+end box
+
+box "业务处理层" #LightYellow
+    participant "DeviceEvent Consumer" as Consumer
+    participant "DeviceOnline Handler" as OnlineHandler
+end box
+
+box "服务层" #LightGreen
+    participant "DeviceService" as DeviceService
+    participant "DeviceShadow Service" as ShadowService
+end box
+
+box "数据层" #LightCoral
+    database "MongoDB" as MongoDB
+    database "Redis" as Redis
+end box
+
+Device -> MQTT: publish online
+MQTT -> Kafka: forward message
+Kafka -> Consumer: @KafkaListener
+Consumer -> OnlineHandler: handle online
+OnlineHandler -> DeviceService: update status
+DeviceService -> ShadowService: update shadow
+ShadowService -> MongoDB: save
+ShadowService -> Redis: cache put
+@enduml
+```
+
 ## Participant Types
 
 PlantUML supports specialized participant types beyond standard boxes:

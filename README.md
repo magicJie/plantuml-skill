@@ -157,9 +157,16 @@ Create `auth_flow.puml`:
 
 ```puml
 @startuml
-participant User
-participant App
-participant AuthServer
+!theme plain
+
+box "客户端" #LightCyan
+  actor User
+end box
+
+box "应用层" #LightYellow
+  participant App
+  participant AuthServer
+end box
 
 User -> App: Login Request
 activate App
@@ -171,6 +178,8 @@ App --> User: Success
 deactivate App
 @enduml
 ```
+
+For better readability in larger sequence diagrams, group participants by layer using `box "..." #Color` with soft background colors.
 
 Convert to image:
 
@@ -482,7 +491,7 @@ The `references/` directory contains comprehensive guides:
 5. **Start simple** - Test basic diagrams before adding complexity
 6. **Version control** - Commit `.puml` source files to Git
 7. **Prefer official-first defaults** - Start with no style (or `!theme plain`), then add minimal `<style>` only when readability needs it
-8. **Avoid over-styling sequence diagrams** - Heavy participant recoloring and thick arrows often reduce clarity
+8. **Use layered grouping for sequence diagrams** - Group participants by architecture layer with soft `box` colors
 
 ## Use with Claude Code
 

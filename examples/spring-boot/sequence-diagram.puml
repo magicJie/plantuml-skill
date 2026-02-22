@@ -3,20 +3,34 @@
 
 title 🌱 Spring Boot REST API - Create Order Flow
 
+box "客户端" #LightCyan
 actor "👤 Client" as Client
+end box
+
+box "接入层" #LightGray
 participant "⚖️ Load Balancer" as LB
 participant "🔒 Security Filter\n(JWT Validation)" as Security
+end box
+
+box "应用层" #LightYellow
 participant "🎯 OrderController\n@RestController" as Controller
 participant "💼 OrderService\n@Service" as Service
 participant "💼 UserService\n@Service" as UserService
 participant "💼 ProductService\n@Service" as ProductService
 participant "💼 PaymentService\n@Service" as PaymentService
 participant "📦 OrderRepository\n@Repository" as Repository
-database "💾 PostgreSQL\nDatabase" as DB
-database "⚡ Redis\nCache" as Cache
+participant "⚡ NotificationService\n@Async" as NotifService
+end box
+
+box "消息与外部集成" #LightSteelBlue
 participant "🔌 Payment Gateway\n(Stripe)" as PaymentAPI
 queue "📬 RabbitMQ" as MQ
-participant "⚡ NotificationService\n@Async" as NotifService
+end box
+
+box "数据层" #LightCoral
+database "💾 PostgreSQL\nDatabase" as DB
+database "⚡ Redis\nCache" as Cache
+end box
 
 == Authentication ==
 

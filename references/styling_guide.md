@@ -4,7 +4,7 @@ Comprehensive guide to modern PlantUML styling using the `<style>` tag with CSS-
 
 ## Table of Contents
 
-1. [Official-Like Baseline (Recommended Default)](#official-like-baseline-recommended-default)
+1. [Recommended Sequence Default: Layered Grouping](#recommended-sequence-default-layered-grouping)
 2. [Why Modern `<style>` Over Legacy `skinparam`](#why-modern-style-over-legacy-skinparam)
 3. [Basic `<style>` Syntax](#basic-style-syntax)
 4. [Element Selectors](#element-selectors)
@@ -17,15 +17,16 @@ Comprehensive guide to modern PlantUML styling using the `<style>` tag with CSS-
 
 ---
 
-## Official-Like Baseline (Recommended Default)
+## Recommended Sequence Default: Layered Grouping
 
-If your goal is to match PlantUML official site aesthetics, do **not** start with heavy custom colors.
+For sequence diagrams, use grouped participant layers as the default style. Keep arrows and participant internals close to PlantUML defaults, and use soft box background colors for structure.
 
 ### Baseline Strategy
 
-1. Keep the diagram unstyled first (official defaults)
-2. Optionally add `!theme plain` for explicit neutral baseline
-3. Add minimal `<style>` only when readability needs improvement
+1. Use `!theme plain` as neutral baseline
+2. Group participants by architecture layer with `box "..." #Color`
+3. Use soft background colors for boxes, not aggressive per-participant recoloring
+4. Add minimal `<style>` only when readability needs improvement
 
 ### Sequence Diagram Baseline Example
 
@@ -33,10 +34,18 @@ If your goal is to match PlantUML official site aesthetics, do **not** start wit
 @startuml
 !theme plain
 
-actor User
-participant "Web App" as Web
-participant "API Service" as API
-database "Database" as DB
+box "客户端" #LightCyan
+  actor User
+end box
+
+box "应用层" #LightYellow
+  participant "Web App" as Web
+  participant "API Service" as API
+end box
+
+box "数据层" #LightCoral
+  database "Database" as DB
+end box
 
 User -> Web : Login request
 Web -> API : Authenticate
@@ -47,13 +56,13 @@ Web --> User : Success
 @enduml
 ```
 
-### What Usually Makes Diagrams Look Worse Than Official
+### What Usually Makes Layered Diagrams Look Worse
 
-- Full participant recoloring in sequence diagrams
+- Full participant recoloring (instead of layered box grouping)
 - Thick arrows and high-saturation palettes everywhere
 - Mixing many visual idioms in one diagram (emoji, heavy styling, multiple themes)
 
-Use custom styling as a second step, not as default output.
+Use custom styling as a second step, while keeping layered grouping as default output.
 
 ---
 
